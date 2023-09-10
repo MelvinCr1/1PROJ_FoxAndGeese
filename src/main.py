@@ -51,7 +51,7 @@ def executionCommand(modeValue):
     elif modeValue == 2:
         subprocess.run(["python", "rules.py"])
     else:
-        print("Erreur : mode inconnu")
+        print("Fermeture du jeu")
 
 startHomePage = HomePage()
 modeValue = startHomePage.getModeValue()

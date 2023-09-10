@@ -204,7 +204,7 @@ class Game(GridSelection):
                     self.displayLine(i, j, x, y)
             # Affichage des futurs déplacements avec capture possible
                 if self.__board[i][j] == 5:
-                    self.__canvas.create_oval(x - 8, y - 8, x + 8, y + 8, fill="blue")
+                    self.__canvas.create_oval(x - 8, y - 8, x + 8, y + 8, fill="purple")
                     self.displayLine(i, j, x, y)
 
     def displayLine(self, i, j, x, y):
@@ -267,8 +267,6 @@ class Game(GridSelection):
                     self.__board[row][col+1] = 4
                 if self.__board[row][col-1] == 1 and 0 <= col-1 < 7:
                     self.__board[row][col-1] = 4
-                else:
-                    print('aucun mouvement possible')
             # Vérification diagonales
                 if self.__board[row+1][col+1] == 1 and 0 <= row+1 < 7 and 0 <= col+1 < 7:
                     self.__board[row+1][col+1] = 4
@@ -278,8 +276,6 @@ class Game(GridSelection):
                     self.__board[row - 1][col-1] = 4
                 if self.__board[row-1][col+1] == 1 and 0 <= row-1 < 7 and 0 <= col+1 < 7:
                     self.__board[row-1][col + 1] = 4
-                else:
-                    print('aucun mouvement diagonale possible')
             # Vérification pour une capture
                 if self.__board[row+1][col] == 3 and 0 <= row + 1 < 7 and self.__board[row+2][col] == 1:
                     self.__board[row+2][col] = 5
@@ -289,8 +285,6 @@ class Game(GridSelection):
                     self.__board[row][col+2] = 5
                 if self.__board[row][col-1] == 3 and 0 <= col - 1 < 7 and self.__board[row][col-2] == 1:
                     self.__board[row][col-2] = 5
-                else:
-                    print('aucun mouvement de capture possible')
                 # Vérification diagonales
                 if self.__board[row+1][col+1] == 3 and 0 <= row+1 < 7 and 0 <= col+1 < 7 and self.__board[row+2][col+2] == 1:
                     self.__board[row + 2][col + 2] = 5
@@ -300,8 +294,6 @@ class Game(GridSelection):
                     self.__board[row - 2][col - 2] = 5
                 if self.__board[row-1][col+1] == 3 and 0 <= row-1 < 7 and 0 <= col+1 < 7 and self.__board[row-2][col+2] == 1:
                     self.__board[row - 2][col + 2] = 5
-                else:
-                    print('aucun mouvement de capture diagonale possible')
             if self.__currentPlayer == 2 and self.__board[row][col] == 4:
                 self.__board[row][col] = 2
                 self.__board[self.__rowFrom][self.__colFrom] = 1
@@ -323,8 +315,6 @@ class Game(GridSelection):
                     self.__board[row][col+1] = 4
                 if self.__board[row][col-1] == 1 and 0 <= col-1 < 7:
                     self.__board[row][col-1] = 4
-                else:
-                    print('aucun mouvement possible')
             if self.__currentPlayer == 3 and self.__board[row][col] == 4:
                 self.__board[row][col] = 3
                 self.__board[self.__rowFrom][self.__colFrom] = 1
@@ -355,11 +345,11 @@ class Game(GridSelection):
 
         for i in range(rows):
             for j in range(cols):
-                up_valid = 0 <= i - 1 < rows and self.__board[i - 1][j] == 1
-                right_valid = 0 <= j + 1 < cols and self.__board[i][j + 1] == 1
-                left_valid = 0 <= j - 1 < cols and self.__board[i][j - 1] == 1
+                upValid = 0 <= i - 1 < rows and self.__board[i - 1][j] == 1
+                rightValid = 0 <= j + 1 < cols and self.__board[i][j + 1] == 1
+                leftValid = 0 <= j - 1 < cols and self.__board[i][j - 1] == 1
 
-                if not (up_valid or right_valid or left_valid):
+                if not (upValid or rightValid or leftValid):
                     self.__possibleMooveGeese = False
                     return self.__possibleMooveGeese
         return self.__possibleMooveGeese
@@ -370,10 +360,10 @@ class Game(GridSelection):
 
         for i in range(rows):
             for j in range(cols):
-                valid_moves = [(i + 1, j), (i - 1, j), (i, j + 1), (i, j - 1),
+                validMoves = [(i + 1, j), (i - 1, j), (i, j + 1), (i, j - 1),
                     (i + 1, j + 1), (i + 1, j - 1), (i - 1, j - 1), (i - 1, j + 1)]
 
-                for x, y in valid_moves:
+                for x, y in validMoves:
                     if 0 <= x < rows and 0 <= y < cols and self.__board[x][y] == 1:
                         self.__possibleMooveFox = False
                         return self.__possibleMooveFox
@@ -403,138 +393,3 @@ class Game(GridSelection):
             self.__root.destroy()
 
 test = Game()
-
-"""
-    def onClick(self, event):
-        col = event.x // 55
-        row = event.y // 55
-        if 0 <= row < 7 and 0 <= col < 7:
-            if self.__currentPlayer == 2 and self.__board[row][col] == 2: # Déplacement du renard
-                self.clearBoard()
-                self.__colFrom = event.x // 55
-                self.__rowFrom = event.y // 55
-                if self.__board[row+1][col] == 1 and 0 <= row+1 < 7:
-                    self.__board[row+1][col] = 4
-                if self.__board[row-1][col] == 1 and 0 <= row-1 < 7:
-                    self.__board[row-1][col] = 4
-                if self.__board[row][col+1] == 1 and 0 <= col+1 < 7:
-                    self.__board[row][col+1] = 4
-                if self.__board[row][col-1] == 1 and 0 <= col-1 < 7:
-                    self.__board[row][col-1] = 4
-                else:
-                    print('aucun mouvement possible')
-            # Vérification diagonales
-                if self.__board[row+1][col+1] == 1 and 0 <= row+1 < 7 and 0 <= col+1 < 7:
-                    self.__board[row+1][col+1] = 4
-                if self.__board[row+1][col-1] == 1 and 0 <= row+1 < 7 and 0 <= col-1 < 7:
-                    self.__board[row+1][col-1] = 4
-                if self.__board[row-1][col-1] == 1 and 0 <= row-1 < 7 and 0 <= col-1 < 7:
-                    self.__board[row - 1][col-1] = 4
-                if self.__board[row-1][col+1] == 1 and 0 <= row-1 < 7 and 0 <= col+1 < 7:
-                    self.__board[row-1][col + 1] = 4
-                else:
-                    print('aucun mouvement diagonale possible')
-            # Vérification pour une capture
-                if self.__board[row+1][col] == 3 and 0 <= row + 1 < 7 and self.__board[row+2][col] == 1:
-                    self.__board[row+2][col] = 5
-                if self.__board[row-1][col] == 3 and 0 <= row - 1 < 7 and self.__board[row-2][col] == 1:
-                    self.__board[row-2][col] = 5
-                if self.__board[row][col+1] == 3 and 0 <= col + 1 < 7 and self.__board[row][col+2] == 1:
-                    self.__board[row][col+2] = 5
-                if self.__board[row][col-1] == 3 and 0 <= col - 1 < 7 and self.__board[row][col-2] == 1:
-                    self.__board[row][col-2] = 5
-                else:
-                    print('aucun mouvement de capture possible')
-                # Vérification diagonales
-                if self.__board[row+1][col+1] == 3 and 0 <= row+1 < 7 and 0 <= col+1 < 7 and self.__board[row+2][col+2] == 1:
-                    self.__board[row + 2][col + 2] = 5
-                if self.__board[row+1][col-1] == 3 and 0 <= row+1 < 7 and 0 <= col-1 < 7 and self.__board[row+2][col-2] == 1:
-                    self.__board[row + 2][col - 2] = 5
-                if self.__board[row-1][col-1] == 3 and 0 <= row-1 < 7 and 0 <= col-1 < 7 and self.__board[row-2][col-2] == 1:
-                    self.__board[row - 2][col - 2] = 5
-                if self.__board[row-1][col+1] == 3 and 0 <= row-1 < 7 and 0 <= col+1 < 7 and self.__board[row-2][col+2] == 1:
-                    self.__board[row - 2][col + 2] = 5
-                else:
-                    print('aucun mouvement de capture diagonale possible')
-            if self.__currentPlayer == 2 and self.__board[row][col] == 4:
-                self.__board[row][col] = 2
-                self.__board[self.__rowFrom][self.__colFrom] = 1
-                self.clearBoard()
-                self.definePlayer()
-            if self.__currentPlayer == 2 and self.__board[row][col] == 5:
-                self.__board[row][col] = 2
-                self.__board[self.__rowFrom][self.__colFrom] = 1
-                self.clearBoard()
-                self.capture(row, col)
-                self.definePlayer()
-            elif self.__currentPlayer == 3 and self.__board[row][col] == 3: # Déplacement de l'oie
-                self.clearBoard()
-                self.__colFrom = event.x // 55
-                self.__rowFrom = event.y // 55
-                if self.__board[row-1][col] == 1 and 0 <= row-1 < 7:
-                    self.__board[row-1][col] = 4
-                if self.__board[row][col+1] == 1 and 0 <= col+1 < 7:
-                    self.__board[row][col+1] = 4
-                if self.__board[row][col-1] == 1 and 0 <= col-1 < 7:
-                    self.__board[row][col-1] = 4
-                else:
-                    print('aucun mouvement possible')
-            if self.__currentPlayer == 3 and self.__board[row][col] == 4:
-                self.__board[row][col] = 3
-                self.__board[self.__rowFrom][self.__colFrom] = 1
-                self.clearBoard()
-                self.definePlayer()
-            if self.__board[row][col] == 1 or self.__board[row][col] == 0:
-                self.clearBoard()
-        self.displayWindow()
-        self.intToPlayer()
-        self.countPawn()
-        self.checkWin()
-
- def moove(self, event):
-     colTo = event.x // 55
-     rowTo = event.y // 55
-
-     if 0 <= rowTo < len(self.__board) and 0 <= colTo < len(self.__board[rowTo]):
-         print("Case: ", rowTo, colTo)
-
-         if self.__board[rowTo][colTo] == 1:  # Check if the clicked cell is empty
-             if rowFrom != -1 and colFrom != -1:
-                 # Check if the move is valid
-                 if abs(rowTo - rowFrom) == 1 and abs(colTo - colFrom) == 1 and self.__board[rowTo][colTo] == 1:
-                     # Move the fox
-                     self.__board[rowFrom][colFrom] = 1
-                     self.__board[rowTo][colTo] = 2
-                 else:
-                     messagebox.showinfo("Invalid Move", "You can only move diagonally to an empty cell.")
-             else:
-                 messagebox.showinfo("No Fox Selected", "Please select a fox to move.")
-         else:
-             messagebox.showinfo("Invalid Move", "You can only move to an empty cell.")
-
-         # Update the board display after the move
-         self.displayWindow()
-         self.definePlayer()
-
- def moove(self, event):
-     colTo = event.x // 8
-     rowTo = event.y // 8
-     rowFrom = -1
-     colFrom = -1
-     if 0 <= rowTo < 7 and 0 <= colTo < 7:
-         print("Case : ", rowTo, colTo)
-         if rowFrom == -1 and colFrom == -1:
-             if self.__board[rowTo][colTo] == 2 or self.__board[rowTo][colTo] == 3:
-                 rowFrom = rowTo
-                 colFrom = colTo
-             else:
-                 if self.__board[rowTo][colTo] == 1:  # Vérification si la case est vide
-                     if self.__board[rowFrom][colFrom] == 2:  # Déplacement du renard
-                             self.__board[rowFrom][colFrom] = 1
-                             self.__board[rowTo][colTo] = 2
-                     elif self.__board[rowFrom][colFrom] == 3:  # Déplacement de l'oie
-                             self.__board[rowFrom][colFrom] = 1
-                             self.__board[rowTo][colTo] = 3
-             # Mise à jour du plateau
-             self.displayWindow()
-"""
