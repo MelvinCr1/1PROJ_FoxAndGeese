@@ -6,8 +6,8 @@ import pygame.mixer
 class GridSelection:
     def __init__(self):
         pygame.mixer.init()
-        self.__clickSound = pygame.mixer.Sound("Click.wav")
-        self.__backgroundMusic = pygame.mixer.Sound("Hello.mp3")
+        self.__clickSound = pygame.mixer.Sound("song\Click.wav")
+        self.__backgroundMusic = pygame.mixer.Sound("song\Hello.mp3")
         self.__backgroundMusic.play(-1)
         self.__root = Tk()
         self.__root.title("Fox And Geese")
@@ -81,8 +81,8 @@ class Game(GridSelection):
     def __init__(self):
         super().__init__()
         pygame.mixer.init()
-        self.__clickSound = pygame.mixer.Sound("Click.wav")
-        self.__backgroundMusic = pygame.mixer.Sound("Shine2.mp3")
+        self.__clickSound = pygame.mixer.Sound("song\Click.wav")
+        self.__backgroundMusic = pygame.mixer.Sound("song\Shine2.mp3")
         self.__backgroundMusic.play(-1)
         self.__root = Tk()
         self.__root.title("Fox And Geese")
@@ -254,6 +254,7 @@ class Game(GridSelection):
     def onClick(self, event):
         col = event.x // 55
         row = event.y // 55
+        self.__clickSound.play()
         if 0 <= row < 7 and 0 <= col < 7:
             if self.__currentPlayer == 2 and self.__board[row][col] == 2: # Déplacement du renard
                 self.clearBoard()
