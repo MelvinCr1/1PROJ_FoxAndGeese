@@ -46,7 +46,7 @@ La documentation technique contient :
 - Présentation des algorithmes de gestion du déplacement des pions
 - Présentation des algorithmes de gestion de la pose des barrières
 - Explication du procédé utilisé pour faire communiquer plusieurs ordinateurs lors du jeu en réseau
-
+<br>
 - Le manuel du jeu contient :
 
 - Un rappel des règles du jeu
