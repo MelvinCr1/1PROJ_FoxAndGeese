@@ -1,64 +1,72 @@
 # FOX AND GEESE - Readme
 
-## 1. Contexte du projet
+## 1. Context of the project
 
-La société "Puzzle Games" souhaite adapter le jeu "Fox And Geese" en version numérique. Elle cherche un sous-traitant pour développer une version bureau de ce jeu sur les trois principaux systèmes d'exploitation actuels : Linux, Windows et Mac OS X. Le contrat concerne la conception et le développement d'un jeu de stratégie combinatoire abstrait, incluant un nouveau thème graphique, une gestion complète du jeu à la souris et plusieurs fonctionnalités.
-
-
-## 2. Description du projet
-
-### 2.1 - Le jeu
-
-Le "Fox And Geese" est un jeu de stratégie combinatoire abstrait pour deux joueurs, où chacun doit atteindre le côté opposé du plateau avant son adversaire en utilisant les pions et les barrières pour bloquer l'avancée de l'autre joueur.
-
-Des ressources complètes sur le jeu et ses règles sont disponibles sur GitHub.
+The company "Puzzle Games" wants to adapt the game "Fox And Geese" in a digital version. It is looking for a subcontractor to develop a desktop version of this game on the three main current operating systems: Linux, Windows and Mac OS X. The contract concerns the design and development of an abstract combinatorial strategy game, including a new graphic theme, full mouse game management and several features.
 
 
-### 2.2 - Fonctionnalités générales à implémenter
-Le projet devra inclure les fonctionnalités suivantes :
+## 2. Project description
 
-- Redéfinition de l'univers graphique<br>
-- Gestion complète du jeu à la souris<br>
-- Choix de plusieurs configurations :<br>
-- Quatre tailles de plateaux : 5x5, 7x7, 9x9, 11x11<br>
-- Choix du nombre de barrières : multiples de 4 entre 4 et 40. Restreindre les possibilités en fonction de la taille du plateau.<br>
-- Les valeurs par défaut sont un plateau de 9x9 et un nombre de barrières égal à 20.<br>
-- Choix du nombre de joueurs<br>
-- Choix du type de jeu (en réseau ou non)<br>
-- Une version du jeu où les deux ou quatre joueurs s'affrontent sur le même ordinateur<br>
-- Une version du jeu où les deux ou quatre joueurs s'affrontent en réseau sur deux ou quatre machines différentes<br>
-- Une version du jeu où un joueur humain joue contre un ordinateur, ce dernier choisissant ses coups de manière aléatoire<br>
-- Possibilité de rejouer<br>
+### 2.1 - The game
+
+"Fox And Geese" is an abstract combinatorial strategy game for two players, where each player must reach the opposite side of the board before their opponent by using pawns and barriers to block the other player's advance.
+
+Complete resources on the game and its rules are available on GitHub.
 
 
-## 3. Le rendu
+### 2.2 - General features to implement
+The project must include the following functionalities:
 
-Le rendu du projet est une archive au format "zip" contenant :
-- Le code source
-- Les fichiers annexes (sons, images, etc.)
-- La documentation technique
-- Le manuel du jeu
+- Redefinition of the graphic universe<br>
+- Complete management of the game with the mouse<br>
+- Choice of several configurations:<br>
+- Four tray sizes: 5x5, 7x7, 9x9, 11x11<br>
+- Choice of the number of barriers: multiples of 4 between 4 and 40. Restrict the possibilities according to the size of the board.<br>
+- Default values ​​are a 9x9 board and a number of barriers equal to 20.<br>
+- Choice of the number of players<br>
+- Choice of game type (networked or not)<br>
+- A version of the game where two or four players compete on the same computer<br>
+- A version of the game where the two or four players compete in a network on two or four different machines<br>
+- A version of the game where a human player plays against a computer, the latter choosing its moves randomly<br>
+- Ability to replay
 
-#### La documentation technique contient :
 
-- Justification du choix du langage et de la librairie graphique
-- Description précise des structures de données
-- Présentation des algorithmes de gestion du déplacement des pions
-- Présentation des algorithmes de gestion de la pose des barrières
-- Explication du procédé utilisé pour faire communiquer plusieurs ordinateurs lors du jeu en réseau
+## 3. Rendering
 
-#### Le manuel du jeu contient :
+The rendering of the project is an archive in "zip" format containing:
+- The source code
+- Additional files (sounds, images, etc.)
+- Technical documentation
+- The game manual
 
-- Un rappel des règles du jeu
-- Comment lancer le jeu
-- Comment y jouer
+
+#### The technical documentation contains:
+
+- Justification of the choice of language and graphic library
+- Accurate description of data structures
+- Presentation of pawn movement management algorithms
+- Presentation of algorithms for managing the installation of barriers
+- Explanation of the process used to make several computers communicate during the network game
+
+#### The game manual contains:
+
+- A reminder of the rules of the game
+- How to start the game
+- How to play it
+
+
+## Built With
+
+* [PyCharm] - The IDE used
 
 
 ## 4. Auteurs
 
-Cureau Melvin.
+* **Melvin Cureau** - *Initial work* - [MelvinCureau](https://github.com/MelvinCr1)
+
+See also the list of [contributors](https://github.com/MelvinCr1/jefferson_Cylinder/contributors) who participated in this project.
 
 
 ## 5. Licence
 
-Ce projet est sous licence MIT. Voir le fichier LICENCE pour plus de détails.
+This project is under the MIT license. See the LICENSE file for more details.
