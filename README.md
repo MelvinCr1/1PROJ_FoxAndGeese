@@ -1,13 +1,14 @@
 # FOX AND GEESE - Readme
-1. Contexte du projet
+
+## 1. Contexte du projet
 
 La société "Puzzle Games" souhaite adapter le jeu "Fox And Geese" en version numérique. Elle cherche un sous-traitant pour développer une version bureau de ce jeu sur les trois principaux systèmes d'exploitation actuels : Linux, Windows et Mac OS X. Le contrat concerne la conception et le développement d'un jeu de stratégie combinatoire abstrait, incluant un nouveau thème graphique, une gestion complète du jeu à la souris et plusieurs fonctionnalités.
 
 <br>
 
-2. Description du projet
+## 2. Description du projet
 
-2.1 - Le jeu
+### 2.1 - Le jeu
 
 Le "Fox And Geese" est un jeu de stratégie combinatoire abstrait pour deux joueurs, où chacun doit atteindre le côté opposé du plateau avant son adversaire en utilisant les pions et les barrières pour bloquer l'avancée de l'autre joueur.
 
@@ -15,7 +16,7 @@ Des ressources complètes sur le jeu et ses règles sont disponibles sur GitHub.
 
 <br>
 
-2.2 - Fonctionnalités générales à implémenter
+### 2.2 - Fonctionnalités générales à implémenter
 Le projet devra inclure les fonctionnalités suivantes :
 
 - Redéfinition de l'univers graphique<br>
@@ -33,7 +34,7 @@ Le projet devra inclure les fonctionnalités suivantes :
 
 <br>
 
-3. Le rendu
+## 3. Le rendu
 
 Le rendu du projet est une archive au format "zip" contenant :
 - Le code source
@@ -57,7 +58,7 @@ La documentation technique contient :
 
 <br>
 
-4. Auteurs
+## 4. Auteurs
 
 Cureau Melvin.
 
