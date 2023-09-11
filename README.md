@@ -39,15 +39,15 @@ Le rendu du projet est une archive au format "zip" contenant :
 - La documentation technique
 - Le manuel du jeu
 
-La documentation technique contient :
+#### La documentation technique contient :
 
 - Justification du choix du langage et de la librairie graphique
 - Description précise des structures de données
 - Présentation des algorithmes de gestion du déplacement des pions
 - Présentation des algorithmes de gestion de la pose des barrières
 - Explication du procédé utilisé pour faire communiquer plusieurs ordinateurs lors du jeu en réseau
-<br>
-- Le manuel du jeu contient :
+
+#### Le manuel du jeu contient :
 
 - Un rappel des règles du jeu
 - Comment lancer le jeu
