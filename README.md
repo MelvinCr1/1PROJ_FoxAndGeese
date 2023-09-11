@@ -64,7 +64,7 @@ The rendering of the project is an archive in "zip" format containing:
 
 * **Melvin Cureau** - *Initial work* - [MelvinCureau](https://github.com/MelvinCr1)
 
-See also the list of [contributors](https://github.com/MelvinCr1/jefferson_Cylinder/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/MelvinCr1/FoxAndGeese/contributors) who participated in this project.
 
 
 ## 5. Licence
