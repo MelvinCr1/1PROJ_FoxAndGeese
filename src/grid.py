@@ -260,41 +260,41 @@ class Game(GridSelection):
                 self.clearBoard()
                 self.__colFrom = event.x // 55
                 self.__rowFrom = event.y // 55
-                if self.__board[row+1][col] == 1 and 0 <= row+1 < 7:
+                if 0 <= row+1 < 7 and self.__board[row+1][col] == 1:
                     self.__board[row+1][col] = 4
-                if self.__board[row-1][col] == 1 and 0 <= row-1 < 7:
+                if 0 <= row-1 < 7 and self.__board[row-1][col] == 1:
                     self.__board[row-1][col] = 4
-                if self.__board[row][col+1] == 1 and 0 <= col+1 < 7:
+                if 0 <= col+1 < 7 and self.__board[row][col+1] == 1:
                     self.__board[row][col+1] = 4
-                if self.__board[row][col-1] == 1 and 0 <= col-1 < 7:
+                if 0 <= col-1 < 7 and self.__board[row][col-1] == 1:
                     self.__board[row][col-1] = 4
             # Vérification diagonales
-                if self.__board[row+1][col+1] == 1 and 0 <= row+1 < 7 and 0 <= col+1 < 7:
+                if 0 <= row+1 < 7 and 0 <= col+1 < 7 and self.__board[row+1][col+1] == 1:
                     self.__board[row+1][col+1] = 4
-                if self.__board[row+1][col-1] == 1 and 0 <= row+1 < 7 and 0 <= col-1 < 7:
+                if 0 <= row+1 < 7 and 0 <= col-1 < 7 and self.__board[row+1][col-1] == 1:
                     self.__board[row+1][col-1] = 4
-                if self.__board[row-1][col-1] == 1 and 0 <= row-1 < 7 and 0 <= col-1 < 7:
-                    self.__board[row - 1][col-1] = 4
-                if self.__board[row-1][col+1] == 1 and 0 <= row-1 < 7 and 0 <= col+1 < 7:
-                    self.__board[row-1][col + 1] = 4
+                if 0 <= row-1 < 7 and 0 <= col-1 < 7 and self.__board[row-1][col-1] == 1:
+                    self.__board[row-1][col-1] = 4
+                if 0 <= row-1 < 7 and 0 <= col+1 < 7 and self.__board[row-1][col+1] == 1:
+                    self.__board[row-1][col+1] = 4
             # Vérification pour une capture
-                if self.__board[row+1][col] == 3 and 0 <= row + 1 < 7 and self.__board[row+2][col] == 1:
+                if 0 <= row+1 < 7 and self.__board[row+1][col] == 3 and 0 <= row + 2 < 7 and self.__board[row+2][col] == 1:
                     self.__board[row+2][col] = 5
-                if self.__board[row-1][col] == 3 and 0 <= row - 1 < 7 and self.__board[row-2][col] == 1:
-                    self.__board[row-2][col] = 5
-                if self.__board[row][col+1] == 3 and 0 <= col + 1 < 7 and self.__board[row][col+2] == 1:
+                if 0 <= row-1 < 7 and self.__board[row-1][col] == 3 and 0 <= row - 2 < 7 and self.__board[row-2][col] == 1:
+                    self.__board[row - 2][col] = 5
+                if 0 <= col+1 < 7 and self.__board[row][col+1] == 3 and 0 <= col + 2 < 7 and self.__board[row][col+2] == 1:
                     self.__board[row][col+2] = 5
-                if self.__board[row][col-1] == 3 and 0 <= col - 1 < 7 and self.__board[row][col-2] == 1:
+                if 0 <= col-1 < 7 and self.__board[row][col-1] == 3 and 0 <= col - 2 < 7 and self.__board[row][col-2] == 1:
                     self.__board[row][col-2] = 5
-                # Vérification diagonales
-                if self.__board[row+1][col+1] == 3 and 0 <= row+1 < 7 and 0 <= col+1 < 7 and self.__board[row+2][col+2] == 1:
+            # Vérification diagonales
+                if 0 <= row+1 < 7 and 0 <= col+1 < 7 and self.__board[row+1][col+1] == 3 and 0 <= row+2 < 7 and 0 <= col+2 < 7 and self.__board[row+2][col+2] == 1:
                     self.__board[row + 2][col + 2] = 5
-                if self.__board[row+1][col-1] == 3 and 0 <= row+1 < 7 and 0 <= col-1 < 7 and self.__board[row+2][col-2] == 1:
-                    self.__board[row + 2][col - 2] = 5
-                if self.__board[row-1][col-1] == 3 and 0 <= row-1 < 7 and 0 <= col-1 < 7 and self.__board[row-2][col-2] == 1:
-                    self.__board[row - 2][col - 2] = 5
-                if self.__board[row-1][col+1] == 3 and 0 <= row-1 < 7 and 0 <= col+1 < 7 and self.__board[row-2][col+2] == 1:
-                    self.__board[row - 2][col + 2] = 5
+                if 0 <= row+1 < 7 and 0 <= col-1 < 7 and self.__board[row+1][col-1] == 3 and 0 <= row+2 < 7 and 0 <= col-2 < 7 and self.__board[row+2][col-2] == 1:
+                    self.__board[row + 2][col-2] = 5
+                if 0 <= row-1 < 7 and 0 <= col-1 < 7 and self.__board[row-1][col-1] == 3 and 0 <= row-2 < 7 and 0 <= col-2 < 7 and self.__board[row-2][col-2] == 1:
+                    self.__board[row - 2][col-2] = 5
+                if 0 <= row-1 < 7 and 0 <= col+1 < 7 and self.__board[row-1][col+1] == 3 and 0 <= row-2 < 7 and 0 <= col+2 < 7 and self.__board[row-2][col+2] == 1:
+                    self.__board[row-2][col+2] = 5
             if self.__currentPlayer == 2 and self.__board[row][col] == 4:
                 self.__board[row][col] = 2
                 self.__board[self.__rowFrom][self.__colFrom] = 1
@@ -310,11 +310,11 @@ class Game(GridSelection):
                 self.clearBoard()
                 self.__colFrom = event.x // 55
                 self.__rowFrom = event.y // 55
-                if self.__board[row-1][col] == 1 and 0 <= row-1 < 7:
+                if 0 <= row-1 < 7 and self.__board[row-1][col] == 1:
                     self.__board[row-1][col] = 4
-                if self.__board[row][col+1] == 1 and 0 <= col+1 < 7:
+                if 0 <= col+1 < 7 and self.__board[row][col+1] == 1:
                     self.__board[row][col+1] = 4
-                if self.__board[row][col-1] == 1 and 0 <= col-1 < 7:
+                if 0 <= col-1 < 7 and self.__board[row][col-1] == 1:
                     self.__board[row][col-1] = 4
             if self.__currentPlayer == 3 and self.__board[row][col] == 4:
                 self.__board[row][col] = 3
