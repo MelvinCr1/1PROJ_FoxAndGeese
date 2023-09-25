@@ -251,12 +251,13 @@ class Game(GridSelection):
             self.__currentPlayer = 2
         return self.__currentPlayer
 
-    def onClick(self, event):
+        def onClick(self, event):
         col = event.x // 55
         row = event.y // 55
         self.__clickSound.play()
         if 0 <= row < 7 and 0 <= col < 7:
-            if self.__currentPlayer == 2 and self.__board[row][col] == 2: # Déplacement du renard
+        # Déplacement du renard
+            if self.__currentPlayer == 2 and self.__board[row][col] == 2:
                 self.clearBoard()
                 self.__colFrom = event.x // 55
                 self.__rowFrom = event.y // 55
@@ -306,16 +307,21 @@ class Game(GridSelection):
                 self.clearBoard()
                 self.capture(row, col)
                 self.definePlayer()
-            elif self.__currentPlayer == 3 and self.__board[row][col] == 3: # Déplacement de l'oie
+        # Déplacement de l'oie
+            elif self.__currentPlayer == 3 and self.__board[row][col] == 3:
                 self.clearBoard()
                 self.__colFrom = event.x // 55
                 self.__rowFrom = event.y // 55
-                if 0 <= row-1 < 7 and self.__board[row-1][col] == 1:
+                if 0 <= row-1 < 7 and self.__board[row-1][col] == 1: # mouvement en avant
                     self.__board[row-1][col] = 4
-                if 0 <= col+1 < 7 and self.__board[row][col+1] == 1:
+                if 0 <= col+1 < 7 and self.__board[row][col+1] == 1: # mouvement à droite
                     self.__board[row][col+1] = 4
-                if 0 <= col-1 < 7 and self.__board[row][col-1] == 1:
+                if 0 <= col-1 < 7 and self.__board[row][col-1] == 1: # mouvement à gauche
                     self.__board[row][col-1] = 4
+                if 0 <= col-1 < 7 and row-1 < 7 and self.__board[row-1][col-1] == 1: # mouvement diagonale gauche
+                    self.__board[row-1][col-1] = 4
+                if 0 <= col+1 < 7 and row-1 < 7 and self.__board[row-1][col+1] == 1: # mouvement diagonale droite
+                    self.__board[row-1][col+1] = 4
             if self.__currentPlayer == 3 and self.__board[row][col] == 4:
                 self.__board[row][col] = 3
                 self.__board[self.__rowFrom][self.__colFrom] = 1
